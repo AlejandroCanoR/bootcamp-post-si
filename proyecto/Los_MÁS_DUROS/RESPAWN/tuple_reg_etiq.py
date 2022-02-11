@@ -5,6 +5,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+#REGISTROS POR INSTRUCCIÓN, REFERENTES AL PRIMER REGISTRO FUENTE, SEGUNDO REGISTRO FUENTE Y REGISTRO DESTINO.
 reg_princ = {
     "x0" : 0,
     "x1" : 1,
@@ -15,6 +16,8 @@ reg_princ = {
     "x6" : 6,
     "x7" : 7
 }
+
+#ETIQUETAS EN RELACIÓN Y ORDEN A LOS CÓDIGOS DADOS
 etiquetas = {
     "MAIN" : 1,
     "INC" : 4,
