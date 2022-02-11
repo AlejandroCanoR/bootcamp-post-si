@@ -43,5 +43,42 @@ def reg_decode(tipo, instruc, reggie):
             return[t.reg_princ[reggie[1]], t.reg_princ[reggie[2]], t.reg_princ[reggie[0]], 0]
         except:
             return None
+
+        # INSTRUCCION BRANCH (TIPO I)
+    elif tipo == "b":
+        try:
+            return [t.reg_princ[reggie[0]], t.reg_princ[reggie[1]], t.etiquetas[reggie[2]]]
+        except:
+            return None
+
+    #FUNC -> i
+    elif tipo == "i":
+
+        #INSTRUCCION SB
+        if (instruc == "sb") or (instruc == "lb"):
+
+            if len(reggie[1]) > 1 and reggie[1][1] == "x":
+                imm = int(reggie[1], base=16)
+            else:
+                imm = int(reggie[1])
+
+            #REGRESA REGISTROS RS, RT Y FILL
+            return[t.reg_princ[reggie[2]], t.reg_princ[reggie[0]], imm]
+
+        #SPEC FUNC -> i
+        if len(reggie[2]) > 1 and reggie[2][1] == "x":
+            imm = int(reggie[2], base=16)
+        else:
+            imm = int(reggie[2])
+
+        #REGRESA REGISTROS RS, RT Y FILL
+        return [t.reg_princ[reggie[1]], t.reg_princ[reggie[0]], imm]
+
+    #FUNC -> i HEX
+    elif tipo == "j":
+        return [t.etiquetas[reggie[0]]]
+
     else:
         return None
+
+

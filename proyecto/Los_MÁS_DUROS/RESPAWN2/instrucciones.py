@@ -58,7 +58,7 @@ def i_decodificado(instruc):
         tipo = "r"
         opcode = 0xe
     
-    elif instr == "srl":    #Instrucción SRL tipo R
+    elif instruc == "srl":    #Instrucción SRL tipo R
         tipo = "r"
         opcode = 0xf
         
