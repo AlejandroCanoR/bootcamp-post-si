@@ -1,8 +1,8 @@
 from instrucciones import i_decodificado 
 from etiquetas_regist import reg_decode
-
-def apertura_en_lect(fileName): #Funcion que abre u archivo en modo lectura, divide una linea y despues cierra el archivo.
-    archivo_op = open(fileName, "r")
+I
+def apertura_en_lect(archivo): #Funcion que abre u archivo en modo lectura, divide una linea y despues cierra el archivo.
+    archivo_op = open(archivo, "r")
     linea = archivo_op.read().split("\n")
     archivo_op.close()
     return linea
