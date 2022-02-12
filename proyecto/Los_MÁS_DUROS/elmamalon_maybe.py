@@ -20,6 +20,8 @@ def main():
 
     print("\n")
     print("                         PROYECTO FINAL \n")
+    print("                  PRESENTADO POR LOS MÁS DUROS ")
+    print(" ***Integrantes: Alejandro Cano Rueda y José Francisco Rocha Fuentes***")
     arch_textus = input(" Por favor, ingrese el nombre de su archivo de instrucciones (ej: codigo1.txt): ")
     print(" Archivo generado en /Los_MÁS_DUROS/binarios.txt \n")
     textus_assign = apertura_en_lect(arch_textus)
