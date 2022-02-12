@@ -58,21 +58,21 @@ def reg_decode(tipo, instruc, reggie):
         if (instruc == "sb") or (instruc == "lb"):
 
             if len(reggie[1]) > 1 and reggie[1][1] == "x":
-                imm = int(reggie[1], base=16)
+                immediate = int(reggie[1], base=16)
             else:
-                imm = int(reggie[1])
+                immediate = int(reggie[1])
 
             #REGRESA REGISTROS RS, RT Y FILL
-            return[t.reg_princ[reggie[2]], t.reg_princ[reggie[0]], imm]
+            return[t.reg_princ[reggie[2]], t.reg_princ[reggie[0]], immediate]
 
         #SPEC FUNC -> i
         if len(reggie[2]) > 1 and reggie[2][1] == "x":
-            imm = int(reggie[2], base=16)
+            immediate = int(reggie[2], base=16)
         else:
-            imm = int(reggie[2])
+            immediate = int(reggie[2])
 
         #REGRESA REGISTROS RS, RT Y FILL
-        return [t.reg_princ[reggie[1]], t.reg_princ[reggie[0]], imm]
+        return [t.reg_princ[reggie[1]], t.reg_princ[reggie[0]], immediate]
 
     #FUNC -> i HEX
     elif tipo == "j":
