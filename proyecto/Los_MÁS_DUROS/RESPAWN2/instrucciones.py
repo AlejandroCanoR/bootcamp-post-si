@@ -8,62 +8,62 @@
 def i_decodificado(instruc):
     if instruc == "add":    #Instrucción ADD tipo R
         tipo = "r"
-        opcode = 0
+        op = 0
         
     elif instruc == "addi": #Instrucción ADDI tipo I
         tipo = "i"
-        opcode = 0x1
+        op = 0x1
     
     elif instruc == "and":  #Instrucción AND tipo R
         tipo = "r"
-        opcode = 0x2
+        op = 0x2
 
     elif instruc == "andi": #Instrucción ANDI tipo I
         tipo = "i"
-        opcode = 0x3
+        op = 0x3
         
     elif instruc == "beq":  #Instrucción BEQ tipo B
         tipo = "b"          #(es tipo I)
-        opcode = 0x4
+        op = 0x4
         
     elif instruc == "bne":  #Instrucción BNE tipo B
         tipo = "b"          #(es tipo I)
-        opcode = 0x5
+        op = 0x5
         
     elif instruc == "j":    #Instrucción JUMP tipo J
         tipo = "j"
-        opcode = 0x6
+        op = 0x6
            
     elif instruc == "jal":  #Instrucción JAL tipo J
         tipo = "j"
-        opcode = 0x7
+        op = 0x7
     
     elif instruc == "jr":   #Instrucción JR tipo J
         tipo = "r"
-        opcode = 0xa
+        op = 0xa
      
     elif instruc == "lb":   #Instrucción LB tipo I
         tipo = "i"
-        opcode = 0xb
+        op = 0xb
         
     elif instruc == "or":   #Instrucción OR tipo R
         tipo = "r"
-        opcode = 0xc
+        op = 0xc
         
     elif instruc == "sb":   #Instrucción SB tipo I
         tipo = "i"
-        opcode = 0xd
+        op = 0xd
         
     elif instruc == "sll":  #Instrucción SLL tipo R
         tipo = "r"
-        opcode = 0xe
+        op = 0xe
     
     elif instruc == "srl":    #Instrucción SRL tipo R
         tipo = "r"
-        opcode = 0xf
+        op = 0xf
         
     else:
         tipo = None
-        opcode = None
+        op = None
     
-    return [tipo, opcode]
+    return [tipo, op]
