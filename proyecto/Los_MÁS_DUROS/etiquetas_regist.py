@@ -5,19 +5,17 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-#import sys
-#sys.path.append("/tuple_reg_etiq")
 import tuple_reg_etiq as t
 
 def reg_decode(tipo, instruc, reggie):
     
-    #INSTRUCCIONES TIPO R
+    # INSTRUCCIONES TIPO R
     if tipo == "r":   
         
         # SLL INSTRUCTION
         if (instruc == "sll"): 
-            #REGRESA REGISTROS RT, RD Y FILL
-            #PUEDE SER TANTO SHIFT LEFT LOGIC COMO SHIFT RIGHT LOGIC
+            # REGRESA REGISTROS RT, RD Y FILL
+            # PUEDE SER TANTO SHIFT LEFT LOGIC COMO SHIFT RIGHT LOGIC
             if (reggie[0] < reggie[1]):
                 return [t.reg_princ[reggie[1]], t.reg_princ[reggie[1]], t.reg_princ[reggie[1]], 0]
             else:
@@ -25,8 +23,8 @@ def reg_decode(tipo, instruc, reggie):
         
         # INSTRUCCION SRL
         if (instruc == "srl"): 
-            #REGRESA REGISTROS RT, RD Y FILL
-            #PUEDE SER TANTO SHIFT LEFT LOGIC COMO SHIFT RIGHT LOGIC
+            # REGRESA REGISTROS RT, RD Y FILL
+            # PUEDE SER TANTO SHIFT LEFT LOGIC COMO SHIFT RIGHT LOGIC
             if (reggie[0] < reggie[1]):
                 return [t.reg_princ[reggie[1]], t.reg_princ[reggie[1]], t.reg_princ[reggie[1]], 0] 
             else:
@@ -34,12 +32,12 @@ def reg_decode(tipo, instruc, reggie):
 
         # INSTRUCCION JR
         if (instruc == "jr"): 
-                #REGRESA REGISTROS RS, RT, RD Y FILL
+                # REGRESA REGISTROS RS, RT, RD Y FILL
                 return [t.reg_princ[reggie[0]], 0, 0, 0]
             
-        #FUNC -> R          
+        # FUNC -> R          
         try:   
-            #REGRESA REGISTROS RS, RT, RD Y FILL   
+            # REGRESA REGISTROS RS, RT, RD Y FILL   
             return[t.reg_princ[reggie[1]], t.reg_princ[reggie[2]], t.reg_princ[reggie[0]], 0]
         except:
             return None
@@ -51,10 +49,10 @@ def reg_decode(tipo, instruc, reggie):
         except:
             return None
 
-    #FUNC -> i
+    # FUNC -> i
     elif tipo == "i":
 
-        #INSTRUCCION SB
+        # INSTRUCCION SB
         if (instruc == "sb") or (instruc == "lb"):
 
             if len(reggie[1]) > 1 and reggie[1][1] == "x":
@@ -62,19 +60,19 @@ def reg_decode(tipo, instruc, reggie):
             else:
                 immediate = int(reggie[1])
 
-            #REGRESA REGISTROS RS, RT Y FILL
+            # REGRESA REGISTROS RS, RT Y FILL
             return[t.reg_princ[reggie[2]], t.reg_princ[reggie[0]], immediate]
 
-        #SPEC FUNC -> i
+        # SPEC FUNC -> i
         if len(reggie[2]) > 1 and reggie[2][1] == "x":
             immediate = int(reggie[2], base=16)
         else:
             immediate = int(reggie[2])
 
-        #REGRESA REGISTROS RS, RT Y FILL
+        # REGRESA REGISTROS RS, RT Y FILL
         return [t.reg_princ[reggie[1]], t.reg_princ[reggie[0]], immediate]
 
-    #FUNC -> i HEX
+    # FUNC -> i HEX
     elif tipo == "j":
         return [t.etiquetas[reggie[0]]]
 

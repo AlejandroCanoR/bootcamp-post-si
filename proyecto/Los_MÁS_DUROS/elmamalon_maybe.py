@@ -5,15 +5,13 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-# Converts MIPS instructions into binary and hex
-#import os
+# Convierte instrucciones MIPS en binario y hexadecimal
 import sys
 from project_conv_func import apertura_en_lect, conv_bin
-#from project64 import apertura_en_lect, conv_bin
 
-#Arreglo para etiquetado
+# Arreglo para etiquetado
 arr_etiq_temp = [] 
-#Arreglo de linea de etiqueta
+# Arreglo de linea de etiqueta
 arr_etiqueta = []
 arr_etiq_val = []
 etiqueta_x = {}
@@ -26,8 +24,9 @@ def main():
     print(" Archivo generado en /Los_MÁS_DUROS/binarios.txt \n")
     textus_assign = apertura_en_lect(arch_textus)
 
-    # Ciclo de busqueda de etiquetado, separando caracteres encontrados en las líneas
-    # y almacenando los valores correspondientes 
+# Ciclo de busqueda de etiquetado, separando caracteres encontrados 
+# en las líneas
+# y almacenando los valores correspondientes 
     for j in range(len(textus_assign)):
         if(":" in textus_assign[j]):
             arr_etiq_val.append(j+1)
@@ -40,7 +39,7 @@ def main():
     for j in range (len(arr_etiqueta)):
         etiqueta_x[arr_etiqueta[j]] = arr_etiq_val[j]
     
-    # Crea el archivo de instrucciones en binario, lo escribe y lo cierra
+# Crea el archivo de instrucciones en binario, lo escribe y lo cierra
     cons_origen = sys.stdout 
     name_bin = 'binarios.txt'
     sys.stdout = open(name_bin, "w")
