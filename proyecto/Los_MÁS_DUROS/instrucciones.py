@@ -62,8 +62,4 @@ def i_decodificado(instruc):
         tipo = "r"
         op = 0xf
         
-    else:
-        tipo = None
-        op = None
-    
     return [tipo, op]
