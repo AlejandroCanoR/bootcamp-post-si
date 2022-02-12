@@ -1,14 +1,23 @@
+# c-basic-offset: 4; tab-width: 8; indent-tabs-mode: nil
+# vi: set shiftwidth=4 tabstop=8 expandtab:
+# :indentSize=4:tabSize=8:noTabs=true:
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 from instrucciones import i_decodificado 
 from etiquetas_regist import reg_decode
 
-def apertura_en_lect(archivo): #Funcion que abre u archivo en modo lectura, divide una linea y despues cierra el archivo.
+def apertura_en_lect(archivo): #Funcion que abre u archivo en modo lectura, 
+    # divide una linea y despues cierra el archivo.
     archivo_op = open(archivo, "r")
     linea = archivo_op.read().split("\n")
     archivo_op.close()
     return linea
 
-def conv_bin(ins_base): # Funcion principal de conversion de instrucciones a codigo maquina.
-    # En este apartado se reemplazan ciertos espacios y caracteres por lo necesario segun la instruccion.
+def conv_bin(ins_base): # Funcion principal de conversion de instrucciones 
+    # a codigo maquina.
+    # En este apartado se reemplazan ciertos espacios y caracteres por lo 
+    # necesario segun la instruccion.
     ins_base = ins_base.replace(" ", "")
     ins_base = ins_base.replace(",", " ")
     ins_base = ins_base.replace("  ", " ")
@@ -21,8 +30,10 @@ def conv_bin(ins_base): # Funcion principal de conversion de instrucciones a cod
     # La instruccion se guarda en el espacio 0 del arreglo
     ins_ward = arr[0]
    
-    # Se incluyen las instrucciones desde i_decodificado y se asignan a inst_arregladas, se asigna el opcode, el tipo de funcion
-    # y los valores de cada registro
+    # Se incluyen las instrucciones desde i_decodificado y se asignan a 
+    # inst_arregladas, se asigna el opcode, el tipo de funcion y los 
+    # valores de cada registro
+
     inst_arregladas = i_decodificado(ins_ward)
     tipo = inst_arregladas[0]
     REGIST_v = reg_decode(tipo, ins_ward, arr[1:])
